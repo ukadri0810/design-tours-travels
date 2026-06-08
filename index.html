@@ -1,1 +1,1533 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  <title>Design Tours and Travels | Tours, Flights, Hotels & Travel Agency in Mumbra</title>
+  <meta name="description" content="Design Tours and Travels, Mumbra — trusted tours and travel agency for domestic and international tour packages, flight booking, hotel booking, visa assistance, and Haj & Umrah travel support." />  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">  <style>
+    :root {
+      --blue-dark: #143b6d;
+      --blue: #1e5aa8;
+      --blue-light: #eaf3ff;
+      --blue-bg: #f5f9ff;
+      --gold: #c8920a;
+      --gold-light: #f7e8bf;
+      --white: #ffffff;
+      --text: #4a5568;
+      --border: #dce8f5;
+      --shadow: 0 14px 40px rgba(20, 59, 109, 0.12);
+      --font-heading: "Poppins", Arial, sans-serif;
+      --font-body: "Inter", Arial, sans-serif;
+    }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 86px 0;
+    }
+
+    .section-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      color: var(--blue);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      color: var(--blue-dark);
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      max-width: 720px;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.94rem;
+      transition: 0.22s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-light {
+      background: var(--white);
+      color: var(--blue-dark);
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--blue);
+      color: var(--blue);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: var(--white);
+    }
+
+    .btn-whatsapp:hover {
+      background: #1fad53;
+      transform: translateY(-2px);
+    }
+
+    /* Loader */
+    .loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: linear-gradient(135deg, #0d2a52, #1e5aa8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+
+    .loader.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-card {
+      text-align: center;
+      color: white;
+      animation: scaleIn 0.8s ease forwards;
+    }
+
+    .loader-logo {
+      width: 118px;
+      height: 118px;
+      margin: 0 auto 22px;
+      border-radius: 28px;
+      background: white;
+      color: var(--blue-dark);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-heading);
+      font-size: 2.1rem;
+      font-weight: 800;
+      box-shadow: 0 22px 55px rgba(0,0,0,0.25);
+    }
+
+    .loader-card h2 {
+      font-family: var(--font-heading);
+      font-size: 1.55rem;
+      margin-bottom: 8px;
+    }
+
+    .loader-card p {
+      color: rgba(255,255,255,0.78);
+      font-size: 0.9rem;
+      margin-bottom: 22px;
+    }
+
+    .loader-bar {
+      width: 220px;
+      height: 5px;
+      background: rgba(255,255,255,0.22);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    .loader-bar span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: var(--gold);
+      animation: loadBar 3.2s ease forwards;
+      transform-origin: left;
+    }
+
+    @keyframes loadBar {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    @keyframes scaleIn {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 6px 25px rgba(20,59,109,0.06);
+    }
+
+    .header-inner {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--blue-dark);
+    }
+
+    .brand-mark {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--blue), #6bbcff);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.35rem;
+      box-shadow: 0 12px 28px rgba(30,90,168,0.24);
+    }
+
+    .brand-text strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      line-height: 1.16;
+      letter-spacing: -0.04em;
+      color: var(--blue-dark);
+    }
+
+    .brand-text span {
+      font-size: 0.78rem;
+      color: var(--text);
+    }
+
+    nav {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--blue-dark);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 8px 11px;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      background: var(--blue-light);
+      color: var(--blue);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: 0;
+      width: 42px;
+      height: 42px;
+      cursor: pointer;
+    }
+
+    .menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--blue-dark);
+      margin: 5px auto;
+      border-radius: 10px;
+    }
+
+    .mobile-nav {
+      display: none;
+      border-top: 1px solid var(--border);
+      padding: 12px 0 18px;
+    }
+
+    .mobile-nav.hidden {
+      display: none;
+    }
+
+    .mobile-nav a {
+      display: block;
+      color: var(--blue-dark);
+      font-weight: 700;
+      padding: 12px 4px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 86vh;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(9, 34, 67, 0.95), rgba(30, 90, 168, 0.80)),
+        url("https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1600&q=80&auto=format&fit=crop") center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 780px;
+      padding: 90px 0;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 9px 17px;
+      border-radius: 999px;
+      color: #f5c96b;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 800;
+      font-size: 0.78rem;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      line-height: 1.08;
+      letter-spacing: -0.06em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #f5c96b;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: rgba(255,255,255,0.86);
+      font-size: 1.08rem;
+      margin-bottom: 34px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 42px;
+    }
+
+    .hero-points span {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: rgba(255,255,255,0.88);
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    /* Trust */
+    .trust {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 24px;
+      border-right: 1px solid var(--border);
+    }
+
+    .trust-item:last-child {
+      border-right: 0;
+    }
+
+    .icon-box {
+      width: 54px;
+      height: 54px;
+      border-radius: 15px;
+      background: var(--blue-light);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .icon-box.gold {
+      background: var(--gold-light);
+    }
+
+    .icon-box svg {
+      width: 27px;
+      height: 27px;
+      stroke: var(--blue);
+      fill: none;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .icon-box.gold svg {
+      stroke: #9a6b04;
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--blue-dark);
+      font-size: 0.92rem;
+    }
+
+    .trust-item span {
+      font-size: 0.8rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      min-height: 390px;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(30,90,168,0.14), rgba(255,255,255,0.10)),
+        url("https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1000&q=80&auto=format&fit=crop") center/cover no-repeat;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-note {
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+      background: rgba(255,255,255,0.96);
+      padding: 18px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      max-width: 260px;
+    }
+
+    .about-note strong {
+      color: var(--blue-dark);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .about-note span {
+      font-size: 0.84rem;
+    }
+
+    .about-list {
+      display: grid;
+      gap: 13px;
+      margin-top: 26px;
+    }
+
+    .about-list div {
+      color: var(--blue-dark);
+      font-weight: 600;
+    }
+
+    /* Services */
+    .services {
+      background: var(--blue-bg);
+    }
+
+    .section-head {
+      margin-bottom: 45px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 22px;
+      transition: 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-heading);
+      color: var(--blue-dark);
+      font-size: 1.08rem;
+      margin: 18px 0 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .service-card p {
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+    }
+
+    .service-card a {
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 0.86rem;
+    }
+
+    /* Packages */
+    .packages {
+      background: var(--white);
+    }
+
+    .package-note {
+      margin-top: 18px;
+      background: var(--blue-light);
+      border-left: 4px solid var(--blue);
+      padding: 14px 16px;
+      border-radius: 12px;
+      color: var(--blue-dark);
+      font-size: 0.9rem;
+      max-width: 850px;
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 38px;
+    }
+
+    .package-card {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 10px 26px rgba(20,59,109,0.07);
+      transition: 0.25s ease;
+    }
+
+    .package-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .package-img {
+      height: 210px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .package-body {
+      padding: 22px;
+    }
+
+    .package-body h3 {
+      font-family: var(--font-heading);
+      color: var(--blue-dark);
+      font-size: 1.18rem;
+      margin-bottom: 8px;
+    }
+
+    .package-body p {
+      font-size: 0.88rem;
+      margin-bottom: 15px;
+    }
+
+    .places {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .places span {
+      background: var(--blue-light);
+      color: var(--blue-dark);
+      padding: 6px 9px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    /* Haj */
+    .haj {
+      background:
+        linear-gradient(135deg, rgba(6, 25, 54, 0.93), rgba(18, 55, 101, 0.86)),
+        url("https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1600&q=80&auto=format&fit=crop") center/cover no-repeat;
+      color: var(--white);
+    }
+
+    .haj-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .haj .section-label {
+      color: #f5c96b;
+    }
+
+    .haj .section-title {
+      color: var(--white);
+    }
+
+    .haj .section-sub {
+      color: rgba(255,255,255,0.8);
+    }
+
+    .haj-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 30px 0;
+    }
+
+    .haj-list div,
+    .haj-card {
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.09);
+      border-radius: 16px;
+    }
+
+    .haj-list div {
+      padding: 14px;
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .haj-card {
+      padding: 30px;
+      backdrop-filter: blur(10px);
+    }
+
+    .haj-card h3 {
+      color: var(--white);
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+    }
+
+    .haj-card p {
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 20px;
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--blue-bg);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.2fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .contact-box,
+    form {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .contact-info div {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .contact-info strong {
+      display: block;
+      color: var(--blue-dark);
+      font-size: 0.9rem;
+    }
+
+    form h3 {
+      font-family: var(--font-heading);
+      color: var(--blue-dark);
+      margin-bottom: 22px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    label {
+      display: block;
+      color: var(--blue-dark);
+      font-weight: 700;
+      font-size: 0.84rem;
+      margin-bottom: 7px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 13px;
+      font-family: var(--font-body);
+      font-size: 0.94rem;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(30,90,168,0.08);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .success-msg {
+      display: none;
+      margin-top: 14px;
+      padding: 13px;
+      border-radius: 12px;
+      background: #eaf8ed;
+      color: #206b36;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--blue-dark);
+      color: rgba(255,255,255,0.72);
+      padding: 55px 0 26px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 38px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-heading);
+      color: var(--white);
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    footer h4 {
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 1.3px;
+      margin-bottom: 14px;
+    }
+
+    footer ul {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.88rem;
+    }
+
+    footer a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 20px;
+      font-size: 0.82rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .wa-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 1000;
+      width: 58px;
+      height: 58px;
+      background: #25d366;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 12px 28px rgba(37,211,102,0.35);
+      color: white;
+      font-weight: 900;
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 980px) {
+      nav {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .mobile-nav {
+        display: block;
+      }
+
+      .header-actions .btn-primary {
+        display: none;
+      }
+
+      .trust-grid,
+      .services-grid,
+      .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid,
+      .haj-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .section {
+        padding: 62px 0;
+      }
+
+      .header-inner {
+        min-height: 78px;
+      }
+
+      .brand-mark {
+        width: 54px;
+        height: 54px;
+        border-radius: 15px;
+        font-size: 1.15rem;
+      }
+
+      .brand-text strong {
+        font-size: 1rem;
+      }
+
+      .brand-text span {
+        display: none;
+      }
+
+      .header-actions .btn-whatsapp {
+        padding: 10px 12px;
+        font-size: 0.78rem;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 72px 0;
+      }
+
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+
+      .hero p {
+        font-size: 0.96rem;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .trust-grid,
+      .services-grid,
+      .packages-grid,
+      .haj-list,
+      .form-row,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-item {
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .about-image {
+        min-height: 300px;
+      }
+
+      .about-note {
+        position: static;
+        margin: 210px 16px 16px;
+      }
+
+      .package-img {
+        height: 190px;
+      }
+
+      form,
+      .contact-box {
+        padding: 22px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .wa-float {
+        width: 52px;
+        height: 52px;
+        right: 16px;
+        bottom: 16px;
+      }
+    }
+  </style></head><body>  <div class="loader" id="loader">
+    <div class="loader-card">
+      <div class="loader-logo">DT</div>
+      <h2>Design Tours and Travels</h2>
+      <p>Preparing your travel experience</p>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>  <header>
+    <div class="container">
+      <div class="header-inner">
+        <a href="#home" class="brand">
+          <div class="brand-mark">DT</div>
+          <div class="brand-text">
+            <strong>Design Tours and Travels</strong>
+            <span>Tours • Flights • Hotels • Visa</span>
+          </div>
+        </a>    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#haj-umrah">Haj & Umrah</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-primary" href="tel:+919405893383">Call Now</a>
+      <a class="btn btn-whatsapp" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20to%20enquire%20about%20travel%20packages">WhatsApp</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav hidden" id="mobileNav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#packages">Packages</a>
+    <a href="#haj-umrah">Haj & Umrah</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+  </header>  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">Trusted Travel Agency in Mumbra</div>
+          <h1>Your Travel Partner for <span>Domestic & International Tours</span></h1>
+          <p>
+            Design Tours and Travels helps you plan comfortable journeys across India and abroad with tour packages,
+            flight booking, hotel booking, visa assistance, and Haj & Umrah travel support.
+          </p>      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#contact">Plan Your Trip</a>
+        <a class="btn btn-light" href="#packages">View Packages</a>
+        <a class="btn btn-whatsapp" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20to%20enquire%20about%20travel%20packages">WhatsApp Enquiry</a>
+      </div>
+
+      <div class="hero-points">
+        <span>Domestic Tours</span>
+        <span>International Tours</span>
+        <span>Flight Booking</span>
+        <span>Hotel Booking</span>
+        <span>Visa Assistance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24"><path d="M4 18V6l5-2 6 2 5-2v12l-5 2-6-2-5 2Z"/><path d="M9 4v12"/><path d="M15 6v12"/></svg>
+        </div>
+        <div>
+          <strong>Tour Planning</strong>
+          <span>Domestic & international packages</span>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24"><path d="M3 11.5 21 4l-7.5 17-3-7-7.5-2.5Z"/><path d="M10.5 14 21 4"/></svg>
+        </div>
+        <div>
+          <strong>Flights & Hotels</strong>
+          <span>Booking support for your trip</span>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 8h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
+        </div>
+        <div>
+          <strong>Visa Assistance</strong>
+          <span>Guidance for documentation</span>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="icon-box gold">
+          <svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-12a7 7 0 0 0-14 0c0 6.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <div>
+          <strong>Mumbra Based</strong>
+          <span>Local travel assistance</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image">
+        <div class="about-note">
+          <strong>IATA Certified Travel Assistance</strong>
+          <span>Certification details can be shared on request.</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">Reliable Tours and Travel Services from Mumbra</h2>
+        <p class="section-sub">
+          Design Tours and Travels provides travel services for families, groups, holiday travelers,
+          business travelers, and religious journeys. Our focus is to make every trip smooth, comfortable,
+          and properly guided from enquiry to booking.
+        </p>
+
+        <div class="about-list">
+          <div>Domestic and international tour planning</div>
+          <div>Flight, hotel, and visa assistance</div>
+          <div>Personalized package guidance</div>
+          <div>Haj and Umrah travel support also available</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Our Services</div>
+      <h2 class="section-title">Travel Services We Provide</h2>
+      <p class="section-sub">
+        From holiday planning to flights, hotels, visa support, and religious travel assistance,
+        we provide complete travel support under one roof.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24"><path d="M4 18V6l5-2 6 2 5-2v12l-5 2-6-2-5 2Z"/><path d="M9 4v12"/><path d="M15 6v12"/></svg>
+        </div>
+        <h3>Domestic Tours</h3>
+        <p>Plan India tours to Kashmir, Kerala, Goa, Manali, Rajasthan, Andaman and more.</p>
+        <a href="#contact">Enquire Now</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21"/><path d="M12 3c-2.4 2.5-3.6 5.5-3.6 9s1.2 6.5 3.6 9"/></svg>
+        </div>
+        <h3>International Tours</h3>
+        <p>Travel packages for Dubai, Singapore, Turkey, Malaysia, Europe, Thailand and more.</p>
+        <a href="#contact">Enquire Now</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-box gold">
+          <svg viewBox="0 0 24 24"><rect x="6" y="7" width="12" height="13" rx="2"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/><path d="M9 20v1"/><path d="M15 20v1"/></svg>
+        </div>
+        <h3>Holiday Packages</h3>
+        <p>Family, group and customized travel packages based on destination and budget.</p>
+        <a href="#contact">Enquire Now</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24"><path d="M3 11.5 21 4l-7.5 17-3-7-7.5-2.5Z"/><path d="M10.5 14 21 4"/></svg>
+        </div>
+        <h3>Flight Booking</h3>
+        <p>Domestic and international flight booking assistance for your travel plans.</p>
+        <a href="#contact">Enquire Now</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24"><path d="M4 20V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v14"/><path d="M16 10h2a2 2 0 0 1 2 2v8"/><path d="M8 8h2"/><path d="M8 12h2"/><path d="M8 16h2"/><path d="M4 20h16"/></svg>
+        </div>
+        <h3>Hotel Booking</h3>
+        <p>Hotel booking support based on comfort, location, family needs and budget.</p>
+        <a href="#contact">Enquire Now</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 8h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
+        </div>
+        <h3>Visa Assistance</h3>
+        <p>Guidance for visa documents and travel-related requirements for different destinations.</p>
+        <a href="#contact">Enquire Now</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24"><path d="M5 9 12 5l7 4v10H5V9Z"/><path d="M5 10h14"/><path d="M8 13h8"/><path d="M9 19v-4h6v4"/></svg>
+        </div>
+        <h3>Haj Packages</h3>
+        <p>Haj travel support with guidance for flights, hotels, visa and group arrangements.</p>
+        <a href="#haj-umrah">Know More</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon-box gold">
+          <svg viewBox="0 0 24 24"><path d="M17.5 15.5A7 7 0 0 1 9 6.5a7.5 7.5 0 1 0 8.5 9Z"/><path d="M12 19h7"/></svg>
+        </div>
+        <h3>Umrah Packages</h3>
+        <p>Umrah package assistance for individuals, families and groups.</p>
+        <a href="#haj-umrah">Know More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section packages" id="packages">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Popular Tour Packages</div>
+      <h2 class="section-title">Destinations & Common Sightseeing Places</h2>
+      <p class="section-sub">
+        These are sample destinations and common places usually covered in tour packages.
+      </p>
+      <div class="package-note">
+        Final itinerary may change based on package type, travel dates, hotel selection, flight timing, weather conditions and customer requirement.
+      </div>
+    </div>
+
+    <div class="packages-grid">
+
+      <div class="package-card">
+        <div class="package-img" style="background-image:url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=900&q=80&auto=format&fit=crop');"></div>
+        <div class="package-body">
+          <h3>Dubai Tour Package</h3>
+          <p>Dubai packages with sightseeing, shopping, family attractions and desert experience.</p>
+          <div class="places"><span>Burj Khalifa</span><span>Dubai Mall</span><span>Desert Safari</span><span>Marina Cruise</span><span>Gold Souk</span></div>
+          <a class="btn btn-primary" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20Dubai%20tour%20package%20details">Get Package Details</a>
+        </div>
+      </div>
+
+      <div class="package-card">
+        <div class="package-img" style="background-image:url('https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=900&q=80&auto=format&fit=crop');"></div>
+        <div class="package-body">
+          <h3>Singapore Tour Package</h3>
+          <p>Singapore tours with city attractions, family activities and modern sightseeing.</p>
+          <div class="places"><span>Merlion Park</span><span>Sentosa Island</span><span>Universal Studios</span><span>Gardens by the Bay</span><span>Singapore Flyer</span></div>
+          <a class="btn btn-primary" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20Singapore%20tour%20package%20details">Get Package Details</a>
+        </div>
+      </div>
+
+      <div class="package-card">
+        <div class="package-img" style="background-image:url('https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?w=900&q=80&auto=format&fit=crop');"></div>
+        <div class="package-body">
+          <h3>Turkey Tour Package</h3>
+          <p>Turkey travel with historic locations, scenic views and cultural sightseeing.</p>
+          <div class="places"><span>Istanbul</span><span>Blue Mosque</span><span>Hagia Sophia</span><span>Bosphorus Cruise</span><span>Cappadocia</span></div>
+          <a class="btn btn-primary" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20Turkey%20tour%20package%20details">Get Package Details</a>
+        </div>
+      </div>
+
+      <div class="package-card">
+        <div class="package-img" style="background-image:url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=900&q=80&auto=format&fit=crop');"></div>
+        <div class="package-body">
+          <h3>Malaysia Tour Package</h3>
+          <p>Malaysia packages with Kuala Lumpur sightseeing and family-friendly attractions.</p>
+          <div class="places"><span>Petronas Towers</span><span>Batu Caves</span><span>Genting Highlands</span><span>KL Tower</span><span>Putrajaya</span></div>
+          <a class="btn btn-primary" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20Malaysia%20tour%20package%20details">Get Package Details</a>
+        </div>
+      </div>
+
+      <div class="package-card">
+        <div class="package-img" style="background-image:url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=900&q=80&auto=format&fit=crop');"></div>
+        <div class="package-body">
+          <h3>Europe Tour Package</h3>
+          <p>Europe tour options with famous cities, landmarks and scenic experiences.</p>
+          <div class="places"><span>Paris</span><span>Switzerland</span><span>Rome</span><span>Venice</span><span>Amsterdam</span></div>
+          <a class="btn btn-primary" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20Europe%20tour%20package%20details">Get Package Details</a>
+        </div>
+      </div>
+
+      <div class="package-card">
+        <div class="package-img" style="background-image:url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=900&q=80&auto=format&fit=crop');"></div>
+        <div class="package-body">
+          <h3>Kashmir Tour Package</h3>
+          <p>Kashmir tours with mountains, gardens, valleys and beautiful local experiences.</p>
+          <div class="places"><span>Srinagar</span><span>Gulmarg</span><span>Pahalgam</span><span>Sonmarg</span><span>Dal Lake</span></div>
+          <a class="btn btn-primary" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20Kashmir%20tour%20package%20details">Get Package Details</a>
+        </div>
+      </div>
+
+      <div class="package-card">
+        <div class="package-img" style="background-image:url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=900&q=80&auto=format&fit=crop');"></div>
+        <div class="package-body">
+          <h3>Kerala Tour Package</h3>
+          <p>Kerala tours with backwaters, hill stations and peaceful family travel options.</p>
+          <div class="places"><span>Munnar</span><span>Alleppey</span><span>Thekkady</span><span>Kochi</span><span>Houseboat</span></div>
+          <a class="btn btn-primary" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20Kerala%20tour%20package%20details">Get Package Details</a>
+        </div>
+      </div>
+
+      <div class="package-card">
+        <div class="package-img" style="background-image:url('https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=900&q=80&auto=format&fit=crop');"></div>
+        <div class="package-body">
+          <h3>Goa Tour Package</h3>
+          <p>Goa packages with beaches, forts, sightseeing and leisure travel options.</p>
+          <div class="places"><span>North Goa</span><span>South Goa</span><span>Baga Beach</span><span>Calangute</span><span>Fort Aguada</span></div>
+          <a class="btn btn-primary" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20Goa%20tour%20package%20details">Get Package Details</a>
+        </div>
+      </div>
+
+      <div class="package-card">
+        <div class="package-img" style="background-image:url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=900&q=80&auto=format&fit=crop');"></div>
+        <div class="package-body">
+          <h3>Manali Tour Package</h3>
+          <p>Manali packages with mountains, valleys, snow points and adventure experiences.</p>
+          <div class="places"><span>Solang Valley</span><span>Atal Tunnel</span><span>Hadimba Temple</span><span>Mall Road</span><span>Rohtang</span></div>
+          <a class="btn btn-primary" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20Manali%20tour%20package%20details">Get Package Details</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section haj" id="haj-umrah">
+  <div class="container">
+    <div class="haj-grid">
+      <div>
+        <div class="section-label">Additional Service</div>
+        <h2 class="section-title">Haj & Umrah Travel Assistance</h2>
+        <p class="section-sub">
+          Along with domestic and international tours, Design Tours and Travels also provides
+          Haj and Umrah travel support for individuals, families and groups.
+        </p>
+
+        <div class="haj-list">
+          <div>Visa guidance</div>
+          <div>Flight booking</div>
+          <div>Hotel arrangement</div>
+          <div>Group support</div>
+          <div>Ziyarat assistance</div>
+          <div>Family packages</div>
+        </div>
+
+        <a class="btn btn-light" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20details%20for%20Haj%20or%20Umrah%20package">Ask for Haj & Umrah Package</a>
+      </div>
+
+      <div class="haj-card">
+        <h3>Guided Spiritual Travel Support</h3>
+        <p>
+          We help customers with basic travel guidance, flight and hotel support,
+          visa-related assistance and package information for Haj and Umrah journeys.
+        </p>
+        <a class="btn btn-whatsapp" target="_blank" href="https://wa.me/919405893383?text=Assalamualaikum%2C%20I%20want%20to%20enquire%20about%20Haj%20or%20Umrah%20travel">WhatsApp Enquiry</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-box">
+        <div class="section-label">Contact Us</div>
+        <h2 class="section-title">Plan Your Next Journey</h2>
+        <p>
+          Call or WhatsApp us to discuss your travel requirement. Share your destination,
+          travel date and number of travelers.
+        </p>
+
+        <div class="contact-info">
+          <div>
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.16 12 19.8 19.8 0 0 1 .09 3.37 2 2 0 0 1 2.07 1.2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.6a2 2 0 0 1-.45 2.11L6 8.87a16 16 0 0 0 7.13 7.13l1.24-1.24a2 2 0 0 1 2.11-.45c.83.29 1.7.5 2.6.62A2 2 0 0 1 22 16.92Z"/></svg>
+            </div>
+            <div>
+              <strong>Phone / WhatsApp</strong>
+              <span>+91 94058 93383</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-12a7 7 0 0 0-14 0c0 6.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            </div>
+            <div>
+              <strong>Location</strong>
+              <span>Mumbra, India</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="tel:+919405893383">Call Now</a>
+          <a class="btn btn-outline" target="_blank" href="https://maps.app.goo.gl/i4uhce4Yjxx17tNGA?g_st=ac">Open Google Maps</a>
+          <a class="btn btn-whatsapp" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20to%20enquire%20about%20travel%20packages">WhatsApp</a>
+        </div>
+      </div>
+
+      <form id="enquiryForm">
+        <h3>Send Enquiry</h3>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" placeholder="Your name" required>
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="Your phone number" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Service Required</label>
+          <select required>
+            <option value="">Select service</option>
+            <option>Domestic Tour</option>
+            <option>International Tour</option>
+            <option>Flight Booking</option>
+            <option>Hotel Booking</option>
+            <option>Visa Assistance</option>
+            <option>Haj Package</option>
+            <option>Umrah Package</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Destination</label>
+          <input type="text" placeholder="Example: Dubai, Kashmir, Goa">
+        </div>
+
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell us your travel date, number of people and requirements"></textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit" style="width:100%;">Submit Enquiry</button>
+        <div class="success-msg" id="successMsg">Thank you. Your enquiry has been received.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+  </main><a class="wa-float" target="_blank" href="https://wa.me/919405893383?text=Hello%2C%20I%20want%20to%20enquire%20about%20travel%20packages">WA</a>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Design Tours and Travels</div>
+          <p>Trusted tours and travel assistance from Mumbra for domestic tours, international tours, flights, hotels, visa support, Haj and Umrah.</p>
+        </div>    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Domestic Tours</a></li>
+        <li><a href="#services">International Tours</a></li>
+        <li><a href="#services">Flight Booking</a></li>
+        <li><a href="#services">Visa Assistance</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+919405893383">+91 94058 93383</a></li>
+        <li><a target="_blank" href="https://wa.me/919405893383">WhatsApp</a></li>
+        <li><a target="_blank" href="https://maps.app.goo.gl/i4uhce4Yjxx17tNGA?g_st=ac">Open Google Maps</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Design Tours and Travels. All rights reserved.</span>
+    <span>Tours • Flights • Hotels • Visa • Haj & Umrah</span>
+  </div>
+</div>
+
+  </footer>  <script>
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        document.getElementById("loader").classList.add("hide");
+      }, 3500);
+    });
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileNav = document.getElementById("mobileNav");
+
+    menuBtn.addEventListener("click", function () {
+      mobileNav.classList.toggle("hidden");
+    });
+
+    document.querySelectorAll(".mobile-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mobileNav.classList.add("hidden");
+      });
+    });
+
+    const enquiryForm = document.getElementById("enquiryForm");
+    const successMsg = document.getElementById("successMsg");
+
+    enquiryForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      successMsg.style.display = "block";
+      enquiryForm.reset();
+
+      setTimeout(function () {
+        successMsg.style.display = "none";
+      }, 4000);
+    });
+  </script></body>
+</html>
